@@ -7,7 +7,9 @@ function getRepoContributors(repoOwner, repoName, cb) {
 }
 
 function getRepoContributors(repoOwner, repoName, cb) {
-  var url = `https://api.github.com/repos/${repoOwner}/${repoName}/contributors`;
+  var uName = `keawewong`;
+  var uToken = `a459aac5f07d8680c8b493df89bc435f9977ad43`;
+  var url = `https://${uName}:${uToken}@api.github.com/repos/${repoOwner}/${repoName}/contributors`;
 
   request.get(url)
     .on('error', (err) => {
@@ -15,12 +17,12 @@ function getRepoContributors(repoOwner, repoName, cb) {
     })
     .on('response', (response) => {
       var result = response.statusCode
-      if (result !== 200) {
+      // if (result !== 200) {
+      // };
         console.log(`Response Code: ${result}`)
         console.log(`url: ${url}`)
         cb(`Response Code: ${result}`);
         return
-      };
     })
 
 }
