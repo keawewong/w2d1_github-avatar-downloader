@@ -1,5 +1,7 @@
 var request = require('request')
 var fs = require('fs')
+var db = require('dotenv')
+db.load()
 
 console.log('Welcome to the GitHub Avatar Downloader!')
 
@@ -24,8 +26,9 @@ function getRepoContributors(repoOwner, repoName, cb) {
     return
   }
   // assemble the request options
-  var uName = `keawewong`
-  var uToken = `a258d1f5c78475f82f0c64f8512b76d934999991`
+  var uName = process.env.DB_USER
+  var uToken = process.env.DB_PASS
+  // var uToken = `a258d1f5c78475f82f0c64f8512b76d934999991`
   var url = `https://${uName}:${uToken}@api.github.com/repos/${repoOwner}/${repoName}/contributors`
   var options = {
       url: url,

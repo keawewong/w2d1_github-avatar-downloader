@@ -1,5 +1,6 @@
 #github-avatar-downloader
 images/
+.env
 
 # Logs
 logs
